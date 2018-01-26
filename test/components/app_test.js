@@ -10,12 +10,14 @@ import App from '../../src/components/app';
 // // Use `expect` to make an `assertion` about a target
 // expect
 describe('App', () => {
-  it('shows the correct text', () => {
-    // create an instance of app
-    const component = renderComponent(App);
+  let component;
 
-    // user `expect` to make an `assertion` about target
-    expect(component).to.contain('React simple starter');
-
+  beforeEach(() => {
+      component = renderComponent(App);
   });
+
+  it('show a comment box', () => {
+    expect(component.find('.comment-box')).to.exist;
+  });
+  
 });
